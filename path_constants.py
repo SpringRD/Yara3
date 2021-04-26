@@ -16,3 +16,5 @@ if not os.path.isdir(config_path):
         os.makedirs(config_path)
 '''
 
+license_path = os.path.join(parent_dir, "license.lcs")
+

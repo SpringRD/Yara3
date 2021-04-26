@@ -1,10 +1,3 @@
-E:\Python36\python.exe E:\Python36\Scripts\pyinstaller.exe --clean --windowed --onefile --noupx --icon="E:\PycharmProjects\Yara3_Preparation_Of_Data\resources\images\logo.ico" --name="Yara3_Prearation_Of_Data" --add-data="E:\PycharmProjects\Yara3_Preparation_Of_Data\resources_rc.py;." --add-data="E:\PycharmProjects\Yara3_Preparation_Of_Data\ui\*.*;ui" --add-data="E:\PycharmProjects\Yara3_Preparation_Of_Data\FFmpeg;FFmpeg" --add-data="E:\PycharmProjects\Yara3_Preparation_Of_Data\Aegisub;Aegisub" "E:\PycharmProjects\Yara3_Preparation_Of_Data\main.py"
+* replace "path_of_project" by your project path *
 
-
-E:\Python36basic\python.exe E:\Python36basic\Scripts\pyinstaller.exe --clean --console --onefile --noupx --icon="E:\PycharmProjects\Yara3_Preparation_Of_Data\resources\images\logo.ico" --name="Yara3" --add-data="E:\PycharmProjects\Yara3_Preparation_Of_Data\resources_rc.py;." --add-data="E:\PycharmProjects\Yara3_Preparation_Of_Data\ui\*.*;ui" --add-data="E:\PycharmProjects\Yara3_Preparation_Of_Data\FFmpeg;FFmpeg" --add-data="E:\PycharmProjects\Yara3_Preparation_Of_Data\Aegisub;Aegisub" --add-data="E:\PycharmProjects\Yara3_Preparation_Of_Data\autosub;autosub" "E:\PycharmProjects\Yara3_Preparation_Of_Data\main.py"
-
-D:\Python36\python.exe D:\Python36\Scripts\pyinstaller.exe --clean --console --onefile --noupx --icon="C:\Users\net\Desktop\Yara3\resources\images\logo.ico" --name="Yara3" --add-data="C:\Users\net\Desktop\Yara3\resources_rc.py;." --add-data="C:\Users\net\Desktop\Yara3\ui\*.*;ui" --add-data="C:\Users\net\Desktop\Yara3\FFmpeg;FFmpeg" --add-data="C:\Users\net\Desktop\Yara3\Aegisub;Aegisub" --add-data="C:\Users\net\Desktop\Yara3\autosub;autosub" "C:\Users\net\Desktop\Yara3\main.py"
-
-
-
-pyinstaller.exe --clean --console --onefile --noupx --icon="C:\Users\net\Desktop\Yara3\resources\images\logo.ico" --name="Yara3" --add-data="C:\Users\net\Desktop\Yara3\resources_rc.py;." --add-data="C:\Users\net\Desktop\Yara3\ui\*.*;ui" --add-data="C:\Users\net\Desktop\Yara3\FFmpeg;FFmpeg" --add-data="C:\Users\net\Desktop\Yara3\Aegisub;Aegisub" --add-data="C:\Users\net\Desktop\Yara3\autosub;autosub"
+pyinstaller --clean --windowed --onefile --noupx --icon="path_of_project\resources\images\logo.ico" --name="Yara3" --add-data="path_of_project\resources_rc.py;." --add-data="path_of_project\ui\*.*;ui" --add-data="path_of_project\FFmpeg;FFmpeg" --add-data="C:\Users\net\Desktop\Yara3\Aegisub;Aegisub" --add-data="path_of_project\autosub;autosub" "path_of_project\main.py"

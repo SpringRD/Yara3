@@ -17,6 +17,8 @@ import path_constants
 
 from pygoogletranslation import Translator
 
+from licenser import LicenseClass, get_serial, get_license, check_lic
+
 main_class, _ = loadUiType(os.path.join(path_constants.bundle_dir, "ui//main.ui"))
 
 
@@ -25,15 +27,6 @@ class MainClass(QMainWindow, main_class):
         super(MainClass, self).__init__()
         QMainWindow.__init__(self)
         self.setupUi(self)
-
-        lice = self.checkTime()
-        if not lice:
-            msgbox = QMessageBox()
-            msgbox.setIcon(QMessageBox.Critical)
-            msgbox.setText("صلاحية البرنامج منتهية")
-            msgbox.setWindowTitle("الصلاحية")
-            msgbox.exec()
-            sys.exit()
 
         ffmpeg_exe = os.path.join(path_constants.bundle_dir, "FFmpeg\\bin\\ffmpeg.exe")
         ffprobe_exe = os.path.join(path_constants.bundle_dir, "FFmpeg\\bin\\ffprobe.exe")
@@ -45,16 +38,6 @@ class MainClass(QMainWindow, main_class):
 
         self.handle_ui()
         self.handle_buttons()
-
-    def checkTime(self):
-        dt = datetime.now()
-        if dt.year == 2021:
-            if dt.month < 4:
-                return True
-            else:
-                return False
-        else:
-            return False
 
     def handle_ui(self):
         self.setFixedSize(700, 500)
@@ -334,8 +317,23 @@ class MainClass(QMainWindow, main_class):
 
 def main():
     app = QApplication(sys.argv)
-    ex = MainClass()
-    ex.show()
+    main_ui = MainClass()
+    artifact = "yara3"
+    serial = get_serial()
+    if serial is None:
+        msg_box = QMessageBox()
+        msg_box.setIcon(QMessageBox.Error)
+        msg_box.setText("هناك مشكلة في استخراج الرقم التسلسلي.\nالرجاء تجربة تفعيل البرنامج بصلاحية المدير.")
+        msg_box.setWindowTitle("الرقم التسلسلي")
+        msg_box.exec()
+    else:
+        my_license = get_license(serial, artifact)
+        lic_ui = LicenseClass(serial, my_license, main_ui)
+        res = check_lic(my_license)
+        if res:
+            main_ui.show()
+        else:
+            lic_ui.show()
     app.exec_()
 
 
